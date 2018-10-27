@@ -118,10 +118,10 @@ functions:
           cors: true
           authorizer: aws_iam
 
-    billing:
-      handler: billing.main
-      events:
-        - http:
+  billing:
+    handler: billing.main
+    events:
+      - http:
           path: billing
           method: post
           cors: true
