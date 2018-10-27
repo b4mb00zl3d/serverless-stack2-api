@@ -1,5 +1,5 @@
-Resource:
-  AttachmentBucket:
+Resources:
+  AttachmentsBucket:
     Type: AWS::S3::Bucket
     Properties:
       # Set the CORS policy
