@@ -13,7 +13,7 @@ custom:
   stage: ${opt:stage, self:provider.stage}
   # Set the table name here so we can use it while testing locally
   tableName: ${self:custom.stage}-notes
-  # Set our DynamoDB throughput for prod and all other non-prod stages
+  # Set our DynamoDB throughput for prod and all other non-prod stages.
   tableThroughputs:
     prod: 5
     default: 1
@@ -30,13 +30,11 @@ provider:
   region: us-east-1
 
   
-  # These environment variables are made available to our functions
+    # These environment variables are made available to our functions
   # under process.env.
   environment:
-    tableName: ${self.custom.tableName}
+    tableName: ${self:custom.tableName}
 
-  # 'iamRoleStatement' defines the permission policy for the Lambda function.
-  # In this case Lambda functions are granted with permissions to access DynamoDB.
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -47,10 +45,10 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
-      # Restrict our IAM role permissions to 
+      # Restrict our IAM role permissions to
       # the specific table for the stage
-      Resource: 
-        - "Fn::GetAtt": [ NotesTable, Arn]
+      Resource:
+        - "Fn::GetAtt": [ NotesTable, Arn ]
 
 functions:
   # Defines an HTTP API endpoint that calls the main function in create.js
@@ -123,5 +121,5 @@ resources:
   # S3
   - ${file(resources/s3-bucket.yml)}
   # Cognito
-  - ${file(resource/cognito-user-pool.yml)}
-  - ${file(resouces/cognito-identity-pool.yml)}
+  - ${file(resources/cognito-user-pool.yml)}
+  - ${file(resources/<cognito-identity-pool class="yml"></cognito-identity-pool>)}

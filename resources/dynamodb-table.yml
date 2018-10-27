@@ -2,10 +2,10 @@ Resources:
   NotesTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: ${self.custom.tableName}
+      TableName: ${self:custom.tableName}
       AttributeDefinitions:
         - AttributeName: userId
-          AttributeType: S 
+          AttributeType: S
         - AttributeName: noteId
           AttributeType: S
       KeySchema:
