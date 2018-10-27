@@ -124,3 +124,4 @@ resources:
   - ${file(resources/s3-bucket.yml)}
   # Cognito
   - ${file(resource/cognito-user-pool.yml)}
+  - ${file(resouces/cognito-identity-pool.yml)}
